@@ -1,0 +1,52 @@
+body {
+    background-color: #f0c81b;
+    color:#1961d8;
+    padding-top: 70px;
+  }
+  
+  .navbar {
+    margin-bottom: 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    background-color: #f0c81b/*#f0c81b*/;
+  }
+
+  
+  .jumbotron {
+    background-image: url('background.jpg');
+    background-size: cover;
+ /*    background-color: #f0c81b; */
+    color: #1961d8;
+    padding: 50px 0;
+  }
+  
+  #result {
+    margin-top: 50px;
+  }
+  
+  #about{
+    padding-top: 10%;
+    padding-bottom: 10%;
+  }
+
+  #contact{
+    padding-top: 10%;
+    padding-bottom: 10%;
+  }
+
+  #map{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+  }
+
+  #map iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+  }

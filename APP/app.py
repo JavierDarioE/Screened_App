@@ -14,7 +14,7 @@ model = tf.keras.models.load_model('modelo_inception_last_test.h5')
 
 @app.route('/')
 def upload_form():
-    return render_template('upload.html')
+    return render_template('inicio.html')
 
 @app.route('/', methods=['POST'])
 def upload_video():
@@ -34,9 +34,9 @@ def upload_video():
         # Realizar la clasificación del video
         video_class = identification_module.classify_video(video_path, model)
         
-        flash('Video successfully uploaded and displayed below')
-        flash('The name of the movie is '+ video_class)
-        return render_template('upload.html', filename=filename, video_class=video_class)
+        flash('El video ha sido identificado exitosamente.')
+        flash('El nombre de la película es: '+ video_class)
+        return render_template('inicio.html', filename=filename, video_class=video_class)
 
 @app.route('/display/<filename>')
 def display_video(filename):

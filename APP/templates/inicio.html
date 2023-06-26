@@ -1,23 +1,39 @@
 {% extends "plantilla.html" %}
 
 {% block css %}
-<link href="{{ url_for('static', filename='css/inicio.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
-    <div class="left">
-        <div class="texto">
-            <div class="textosecunadario">
-                Screened 
-            </div>
-            <div class="textoprincipal">
-                Identificador de Películas
-            </div>
+<div class="container text-center">
+    <h2>Selecciona un video para identificar.</h2>
+    <p>
+    </p>
+    <form id="videoForm" enctype="multipart/form-data" method="post" action="/">
+        <div class="form-group">
+          <input type="file" class="form-control-file" id="videoInput" accept="video/*" name="file" autocomplete="off" required  value="Escoger Video">
         </div>
-    </div>
-    <div class="right">
-        
-            <img src="{{ url_for('static', filename='images/inicio.png') }}" alt=""  class="imagen" >
-       
-    </div>
+        <p>
+        </p>
+        <input type="submit" class="btn btn-primary" value="Buscar"></button>
+    </form>
+        <p>
+	  {% with messages = get_flashed_messages() %}
+	    {% if messages %}
+		  <ul>
+		    {% for message in messages %}
+		      <li>{{ message }}</li>
+		    {% endfor %}
+		  </ul>
+	    {% endif %}
+	  {% endwith %}
+    </p>
+    {% if filename %}
+	  <div style="margin: 10px auto;">
+		  <video autoplay="autoplay" controls preload="preload" width="480" height="360">
+			  <source src="{{ url_for('display_video', filename=filename) }}" type="video/mp4"></source>
+		  </video>
+	  </div>
+    {% endif %}
+ </div>
 {% endblock %}
